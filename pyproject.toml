@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "xrabbitsmeme"
+version = "0.1.0"
+description = "XRC GOTO THE MOON!"
+authors = ["bugeta <bugeta4u@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.74.0"
+uvicorn = "^0.17.5"
+gunicorn = "^20.1.0"
+python-dotenv = "^0.19.2"
+gino = "^1.0.1"
+alembic = "^1.7.6"
+psycopg2-binary = "^2.9.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0.1"
+requests = "^2.27.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."xrabbitsmeme.modules"]
+"wallet" = "xrabbitsmeme.views.wallet"
+"resource" = "xrabbitsmeme.views.resource"
