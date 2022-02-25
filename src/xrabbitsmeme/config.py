@@ -31,3 +31,7 @@ DB_USE_CONNECTION_FOR_REQUEST = config(
 )
 DB_RETRY_LIMIT = config("DB_RETRY_LIMIT", cast=int, default=1)
 DB_RETRY_INTERVAL = config("DB_RETRY_INTERVAL", cast=int, default=1)
+
+REDIS_HOST = config("REDIS_HOST", default=None)
+REDIS_PORT = config("REDIS_PORT", cast=int, default=6379)
+REDIS_DB = config("REDIS_DB", cast=int, default=0)

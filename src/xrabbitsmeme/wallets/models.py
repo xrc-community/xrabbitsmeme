@@ -1,4 +1,4 @@
-from xrabbitsmeme.models import db
+from xrabbitsmeme.db import db
 
 
 class Wallet(db.Model):

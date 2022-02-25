@@ -33,4 +33,20 @@ poetry run alembic upgrade head
 poetry run uvicorn xrabbitsmeme.asgi:app --reload
 ```
 
+9. Run worker
+```bash
+poetry run arq xrabbitsmeme.worker.WorkerSettings
+```
+
+10. Make migration
+```bash
+poetry run alembic revision --autogenerate -m 'message here' 
+```
+
 Now you can visit `http://localhost:8000/docs` to see docs.
+
+## Cli
+### Create NFT, Download NFT info and image 
+```bash
+python src/xrabbitsmeme/cli/nft.py create-nfts 'QmShUrXkgxjQ1eeCuo7hywsK42cGYj6KQ8N5XomM7d9A9M'
+```
