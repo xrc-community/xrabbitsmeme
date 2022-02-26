@@ -65,11 +65,12 @@ async def get_nft_by_no(path: str, no: int, request: Request):
     ret = nft.to_dict()
     image_url = ''
     filename = nft.filename
-    info = nft.info
+    info: str = nft.info
     if filename:
         image_url = generate_image_url(f'/static/{series.ipfs_path}/{filename}')
     if not image_url and info:
-        image_url: str = info.get('image', '')
+        parsed_info: dict = json.loads(info)
+        image_url: str = parsed_info.get('image', '')
         image_url = IPFSClient.generate_image_url(image_url)
     ret.update(dict(
         image_url=image_url,
