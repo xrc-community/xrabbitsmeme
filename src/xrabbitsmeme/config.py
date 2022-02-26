@@ -4,6 +4,8 @@ from starlette.datastructures import Secret
 
 config = Config(".env")
 
+DOMAIN = config("DOMAIN", default="http://127.0.0.1:8000")
+
 DB_DRIVER = config("DB_DRIVER", default="postgresql")
 DB_HOST = config("DB_HOST", default=None)
 DB_PORT = config("DB_PORT", cast=int, default=None)

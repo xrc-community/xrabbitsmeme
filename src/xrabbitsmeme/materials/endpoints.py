@@ -34,11 +34,11 @@ async def create_material(file: UploadFile, category: str = Form(...), name: str
 
 
 @router.get('/materials')
-async def material_list(request: Request):
+async def material_list():
     materials: List[Material] = await Material.query.gino.all()
     results = []
     for material in materials:
-        image_url = generate_image_url(request, f'/static/materials/{material.category}/{material.filename}')
+        image_url = generate_image_url(f'/static/materials/{material.category}/{material.filename}')
         ret = material.to_dict()
         ret.update(dict(image_url=image_url))
         results.append(ret)

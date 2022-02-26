@@ -67,7 +67,7 @@ async def get_nft_by_no(path: str, no: int, request: Request):
     filename = nft.filename
     info = nft.info
     if filename:
-        image_url = generate_image_url(request, f'/static/{series.ipfs_path}/{filename}')
+        image_url = generate_image_url(f'/static/{series.ipfs_path}/{filename}')
     if not image_url and info:
         image_url: str = info.get('image', '')
         image_url = IPFSClient.generate_image_url(image_url)

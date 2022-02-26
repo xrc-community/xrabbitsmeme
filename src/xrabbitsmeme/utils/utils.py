@@ -1,8 +1,8 @@
-from starlette.requests import Request
+from .. import config
 
 
-def generate_image_url(request: Request, filepath: str):
+def generate_image_url(filepath: str):
     if not filepath.startswith('/'):
         filepath = '/' + filepath
-    domain = f'{request.url.scheme}://{request.url.hostname}:{request.url.port}'
+    domain = config.DOMAIN
     return f'{domain}{filepath}'
